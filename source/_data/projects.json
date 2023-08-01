@@ -2,12 +2,12 @@
     {
        "name": "TeePee",
        "url": "https://github.com/oatsoda/TeePee",
-       "desc": "A fluent API to configure HttpClients for unit testing."
+       "desc": "A .NET fluent API to configure HttpClients for unit testing."
     },    
     {
        "name": "SpotifyRecordCollection",
        "url": "https://github.com/oatsoda/SpotifyRecordCollection",
-       "desc": "Browse albums that you've liked on Spotify."
+       "desc": "Browse albums that you've liked on Spotify. Built in React."
     }
 
     
