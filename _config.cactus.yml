@@ -29,13 +29,15 @@ logo:
   gravatar: false
   grayout: true
 
+# filename can't match theme default else gets overwritten
 favicon:
   desktop:
-    url: /images/favicon.ico
+    url: /images/icon.ico
     gravatar: false
+# TODO: Need a bigger icon for mobile (192x192 Android, 180x180 Apple)
   android:
-    url: /images/favicon.ico
+    url: /images/icon.ico
     gravatar: false
   apple:
-    url: /images/favicon.ico
+    url: /images/icon.ico
     gravatar: false
