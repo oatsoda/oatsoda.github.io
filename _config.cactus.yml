@@ -18,3 +18,24 @@ social_links:
 copyright:
   start_year: 2020
   end_year:
+
+tags_overview: true
+
+logo:
+  enabled: true
+  width: 50
+  height: 50
+  url: /images/logo.jpg
+  gravatar: false
+  grayout: true
+
+favicon:
+  desktop:
+    url: /images/favicon.ico
+    gravatar: false
+  android:
+    url: /images/favicon.ico
+    gravatar: false
+  apple:
+    url: /images/favicon.ico
+    gravatar: false
