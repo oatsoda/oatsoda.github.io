@@ -6,7 +6,6 @@ tags:
   - Interview
   - Process
 ---
-
 ### What makes a good agile developer?
 
 **_What is an agile developer and what traits aid being good at developing in an agile manner?_**
@@ -66,7 +65,7 @@ I'm sure we've all had discussions that go off on tangents. And tangents of tang
 
 #### 3. The ability to learn new skills and technologies quickly to an appropriate depth and breadth and iterate on that learning over time.
 
-The adoption of new technologies that make your project or process better is very important, so having team members who can quickly evaluate these, gain a good understanding and vision of how to use them within your project is a very useful skill. If they can also guage the depth and breadth of understanding required based upon time, importance and longevity then this can save time and be iterated on later.
+The adoption of new technologies that make your project or process better is very important, so having team members who can quickly evaluate these, gain a good understanding and vision of how to use them within your project is a very useful skill. If they can also gauge the depth and breadth of understanding required based upon time, importance and longevity then this can save time and be iterated on later.
 
 #### 4. The ability to have a good understanding of what goes on around you in the team without needing to dedicate specific time to it (peripheral vision).
 
