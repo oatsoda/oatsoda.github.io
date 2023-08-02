@@ -42,7 +42,7 @@ Where possible, make the changes in source **_first_**. It avoids accidents of 
 
 ### Develop locally
 
-Following on from the concept of working code-first, you should also make sure you are developing locally and not against your deployed platform so that your test/staging environments are clean representations of your main source trunk IaC and not being constantly altered by developers working on core product features (especially by code that isn't even finished).
+Following on from the concept of working code-first, you should also make sure you are developing locally and not against your deployed platform so that your Test/Staging environments are clean representations of your main source trunk IaC and not being constantly altered by developers working on core product features (especially by code that isn't even finished).
 
 Use emulators or container images to give each developer their own isolated platform to develop against. I would also suggest that you don't name your CI/CD environment "Dev" or similar as, again, it suggests that it's part of development. Test or Staging are better names.
 
