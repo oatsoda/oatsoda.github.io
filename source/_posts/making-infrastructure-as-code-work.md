@@ -1,23 +1,24 @@
 ---
-title: Making "infrastructure as code", work
+title: Working with Infrastructure as Code
 date: 2021-01-25 11:30:00
 tags:
-- Agile
-- Azure DevOps
-- Pipelines
-- Process
+  - Agile
+  - Azure DevOps
+  - Pipelines
+  - Process
 ---
+
 _Updated 1 Aug 2023: General rewording and re-write of Develop locally section._
 
-### Making Infrastructure as Code work
+### Working with Infrastructure as Code
 
-I believe there is a very simple way of thinking about Infrastructure as Code (IaC): 
+I believe there is a very simple way of thinking about Infrastructure as Code (IaC):
 
-> *It's how you ensure your deployed platform is saved in source control*.
+> _It's how you ensure your deployed platform is saved in source control_.
 
 Getting your deployment code in source control is just a case of committing it. So what else is there? Well, ask yourself the following question:
 
-> ***How can you be sure that your Infrastructure as Code actually reflects your deployed platform?***
+> **_How can you be sure that your Infrastructure as Code actually reflects your deployed platform?_**
 
 I will attempt to answer in this article.
 
@@ -25,7 +26,7 @@ I will attempt to answer in this article.
 
 ### Automate your deployments
 
-Having your Infrastructure defined in deployment code is a great first step, but you should also make sure that it is then hooked up to automatically deploy from your CI/CD pipelines. This way there are no manual steps which could be subject to mistakes.  
+Having your Infrastructure defined in deployment code is a great first step, but you should also make sure that it is then hooked up to automatically deploy from your CI/CD pipelines. This way there are no manual steps which could be subject to mistakes.
 
 Make sure that this is Continuous Deployment to your Test/Staging environments. In the same way that Automated Tests enforce the idea that all changes committed to product source _must work_, automated deployments each and every time changes are committed to source (both product code and deployment code) will help to enforce the idea that they are expected to work also. **Product code and Deployment code should both be treated as first-class citizens**.
 
@@ -37,7 +38,7 @@ Either way, the two have drifted which is a bad thing.
 
 This always reminds me of when I was a teenager working at my first job in a builders merchants. When we did a stock-take we were provided with an inventory of the what the stock system currently believe to be the count of each product. We would check or ammend in comparison to the actual amount on the shelf. We were always told "count from the shelf to the list". The idea being that psychologically if you read how many there were first, would you actually count the correct amount on the shelf, or just assume that while you counted it was the correct number? It's a similar concept with making changes on a deployed environment first (even if this is a Test/Staging environment) - if you made the change on the platform and then updated the deployment code afterwards, how do you know that your code works - perhaps the manual change was different from the code?
 
-Where possible, make the changes in source ***first***. It avoids accidents of forgetting changes were made and also ensures that the deployment code ***actually works***.
+Where possible, make the changes in source **_first_**. It avoids accidents of forgetting changes were made and also ensures that the deployment code **_actually works_**.
 
 ### Develop locally
 
@@ -45,7 +46,7 @@ Following on from the concept of working code-first, you should also make sure y
 
 Use emulators or container images to give each developer their own isolated platform to develop against. I would also suggest that you don't name your CI/CD environment "Dev" or similar as, again, it suggests that it's part of development. Test or Staging are better names.
 
-Developing locally may have some initial overhead with setup, but generally it is then faster for developers to work and test new work, with the added benefit they can do so offline. You can automate a lot of the setup with a set of scripts or using tools such as Microsoft's experimental [Project Tye](https://devblogs.microsoft.com/dotnet/introducing-project-tye/) (which hopefully they will soon announce how this will progress moving forward) and [Ngrok](https://ngrok.com/) (for incoming webhook calls).  Once you have these setup scripts (Be sure to commit those to source too - they are also your "local IaC") it is also then quicker for getting new team members up and running faster.
+Developing locally may have some initial overhead with setup, but generally it is then faster for developers to work and test new work, with the added benefit they can do so offline. You can automate a lot of the setup with a set of scripts or using tools such as Microsoft's experimental [Project Tye](https://devblogs.microsoft.com/dotnet/introducing-project-tye/) (which hopefully they will soon announce how this will progress moving forward) and [Ngrok](https://ngrok.com/) (for incoming webhook calls). Once you have these setup scripts (Be sure to commit those to source too - they are also your "local IaC") it is also then quicker for getting new team members up and running faster.
 
 If specific elements of your employed environment don't have emulators or container images, then I would suggest you create instances of the element for each of your team members (again, automate this) rather than having shared instances (unless there is no data/state). If there's a cost implication with this, schedule in regular tear-downs to delete the resources when they're not being used.
 
@@ -65,7 +66,7 @@ When investigating issues on the deployed platform it can be tempting to make ch
 
 ### Schedule regular tear-downs of deployed platforms
 
-Referring to the question right at the beginning: How can you be sure that your Infrastructure as Code actually reflects your deployed platform?  
+Referring to the question right at the beginning: How can you be sure that your Infrastructure as Code actually reflects your deployed platform?
 
 Having CI/CD deploy your deployment code repeatedly is a great way of checking this, and predominantly you will be deploying to an already deployed environment. This is good. 99% of the time when you deploy to your Live production environment it will already exist, so you are testing the common scenario.
 
