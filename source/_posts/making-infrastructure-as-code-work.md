@@ -28,7 +28,7 @@ I will attempt to answer in this article.
 
 Having your Infrastructure defined in deployment code is a great first step, but you should also make sure that it is then hooked up to automatically deploy from your CI/CD pipelines. This way there are no manual steps which could be subject to mistakes.
 
-Make sure that this is Continuous Deployment to your Test/Staging environments. In the same way that Automated Tests enforce the idea that all changes committed to product source _must work_, automated deployments each and every time changes are committed to source (both product code and deployment code) will help to enforce the idea that they are expected to work also. **Product code and Deployment code should both be treated as first-class citizens**.
+Make sure that this is Continuous Deployment to your Test/Staging environments. In the same way that Automated Tests enforce the idea that all changes committed to product source _must work_, automated deployments each time changes are committed to source (both product and deployment source) will help to enforce the idea that deployment source also _must work_. **Product code and Deployment code should both be treated as first-class citizens**.
 
 ### Work code-first
 
@@ -36,7 +36,7 @@ One of the major reasons that your deployed platform could drift away from what 
 
 Either way, the two have drifted which is a bad thing.
 
-This always reminds me of when I was a teenager working at my first job in a builders merchants. When we did a stock-take we were provided with an inventory of the what the stock system currently believe to be the count of each product. We would check or ammend in comparison to the actual amount on the shelf. We were always told "count from the shelf to the list". The idea being that psychologically if you read how many there were first, would you actually count the correct amount on the shelf, or just assume that while you counted it was the correct number? It's a similar concept with making changes on a deployed environment first (even if this is a Test/Staging environment) - if you made the change on the platform and then updated the deployment code afterwards, how do you know that your code works - perhaps the manual change was different from the code?
+This always reminds me of when I was a teenager working at my first job in a builders merchants. When we did a stock-take we were provided with an inventory of the what the stock system currently believed to be the count of each product. We would check or ammend it based on the actual amount on the shelf. We were always told "count from the shelf to the list". The idea being that psychologically if you read how many there were first, would you actually count the correct amount on the shelf, or just assume that while you counted it was the correct number? It's a similar concept with making changes on a deployed environment first (even if it is a Test/Staging environment) - if you made the change on the platform and then updated the deployment code afterwards, how do you know that your code works - perhaps the manual change was different from the code?
 
 Where possible, make the changes in source **_first_**. It avoids accidents of forgetting changes were made and also ensures that the deployment code **_actually works_**.
 
