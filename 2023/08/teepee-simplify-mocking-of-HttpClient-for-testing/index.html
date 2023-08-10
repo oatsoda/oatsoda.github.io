@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Introducing TeePee: A fluent API library for mocking HttpClient and HttpClientFactory for testingA clean way to set up your HTTP mocks  I started the TeePee (The name is based on the last two characte">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introducing TeePee: Simplify mocking of HttpClients for testing">
+<meta property="og:url" content="http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/">
+<meta property="og:site_name" content="DotDevBlog | Andrew Milne">
+<meta property="og:description" content="Introducing TeePee: A fluent API library for mocking HttpClient and HttpClientFactory for testingA clean way to set up your HTTP mocks  I started the TeePee (The name is based on the last two characte">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/oatsoda/TeePee/main/TeePee/teepee-icon.png">
+<meta property="article:published_time" content="2023-08-10T08:24:18.000Z">
+<meta property="article:modified_time" content="2023-08-10T08:27:40.561Z">
+<meta property="article:author" content="Andrew Milne">
+<meta property="article:tag" content="Testing">
+<meta property="article:tag" content="Mocks">
+<meta property="article:tag" content="HTTP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/oatsoda/TeePee/main/TeePee/teepee-icon.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/icon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/icon.ico" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.ico">
+        
+      
+    
+    <!-- title -->
+    <title>Introducing TeePee: Simplify mocking of HttpClients for testing</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Blog</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2021/01/making-infrastructure-as-code-work/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&text=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&is_video=false&description=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Introducing TeePee: Simplify mocking of HttpClients for testing&body=Check out this article: http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&name=Introducing TeePee: Simplify mocking of HttpClients for testing&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&t=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introducing-TeePee-A-fluent-API-library-for-mocking-HttpClient-and-HttpClientFactory-for-testing"><span class="toc-number">1.</span> <span class="toc-text">Introducing TeePee: A fluent API library for mocking HttpClient and HttpClientFactory for testing</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Introducing TeePee: Simplify mocking of HttpClients for testing
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Andrew Milne</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-08-10T08:24:18.000Z" class="dt-published" itemprop="datePublished">2023-08-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/HTTP/" rel="tag">HTTP</a>, <a class="p-category" href="/tags/Mocks/" rel="tag">Mocks</a>, <a class="p-category" href="/tags/Testing/" rel="tag">Testing</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h3 id="Introducing-TeePee-A-fluent-API-library-for-mocking-HttpClient-and-HttpClientFactory-for-testing"><a href="#Introducing-TeePee-A-fluent-API-library-for-mocking-HttpClient-and-HttpClientFactory-for-testing" class="headerlink" title="Introducing TeePee: A fluent API library for mocking HttpClient and HttpClientFactory for testing"></a>Introducing TeePee: A fluent API library for mocking HttpClient and HttpClientFactory for testing</h3><p><strong><em>A clean way to set up your HTTP mocks</em></strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/oatsoda/TeePee"><img src="https://raw.githubusercontent.com/oatsoda/TeePee/main/TeePee/teepee-icon.png" alt="TeePee Logo"></a></p>
+<p>I started the <a target="_blank" rel="noopener" href="https://github.com/oatsoda/TeePee">TeePee</a> (The name is based on the last two characters of HT<em>TP</em>) library a couple of years ago and it has since become battle tested and proven to work quite nicely.</p>
+<p>It’s quite common to need to mock your HTTP responses and confirm that you’re sending the expected data to the correct place. This can be quite painful to set up, especially when using HttpClientFactory and the various ways you can inject HttpClients.</p>
+<p>Here is the <a target="_blank" rel="noopener" href="https://www.nuget.org/packages/TeePee/">Nuget Package</a>.</p>
+<p>All of the various ways you can use it are documented in the <a target="_blank" rel="noopener" href="https://github.com/oatsoda/TeePee#readme">Readme</a>, including both a) if you cover DI in behavioural tests or b) if you want to manually inject HttpClient&#x2F;HttpClientFactory into your SUT in a unit test.</p>
+<p>There’s also <a target="_blank" rel="noopener" href="https://www.nuget.org/packages/TeePee.Refit/">an extension Package for Refit</a>. Why wouldn’t I just mock the refit interface I hear you say? Well you might decide that’s enough for your situation, but it won’t mean that all the setup code in your startup is covered by the tests - such as Base URI and any Http Handlers which often configure authentication for third party APIs.</p>
+<p>Here’s an example of mocking a GET request and using a simple <em>manual</em> injection of a Named HttpClient:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// Subject Under Test</span><br><span class="line">public class ToTest</span><br><span class="line">&#123;</span><br><span class="line">   public ToTest(HttpClientFactory httpClientFactory)</span><br><span class="line">   &#123;</span><br><span class="line">      var httpClient = httpClientFactory.CreateClient(&quot;MyHttpClient&quot;);</span><br><span class="line">      // ... etc.</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Test Code</span><br><span class="line">var builder = new TeePeeBuilder(&quot;MyHttpClient&quot;);</span><br><span class="line">builder.ForRequest(&quot;https://some.api/path/resource&quot;, HttpMethod.Post)</span><br><span class="line">       .ThatHasBody(new &#123; Value = 12 &#125;)</span><br><span class="line">       .ThatContainsQueryParam(&quot;filter&quot;, &quot;those&quot;)</span><br><span class="line">       .ThatContainsHeader(&quot;ApiKey&quot;, &quot;123abc-xyz987&quot;)</span><br><span class="line">       .Responds()</span><br><span class="line">       .WithStatus(HttpStatusCode.Created)</span><br><span class="line">       .WithBody(new &#123; Id = Guid.NewGuid() &#125;);</span><br><span class="line"></span><br><span class="line">var httpClientFactory = builder.Build()</span><br><span class="line">                               .Manual(&quot;https://some.api&quot;)</span><br><span class="line">                               .CreateHttpClientFactory();</span><br><span class="line">/*</span><br><span class="line">Sadly, if your production code DI registers the BaseURL then you have to duplicate that in the test, passing it to .Manual(); no coverage with manual injection like this.</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">var sut = new ToTest(httpClientFactory);</span><br><span class="line">// ... etc.</span><br></pre></td></tr></table></figure>
+
+<p>And here’s an example of using Refit and also covering startup registrations in the test:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">/* --- Production Code --- */</span><br><span class="line"></span><br><span class="line">public interface IApiService</span><br><span class="line">&#123;</span><br><span class="line">    [Get(&quot;/users/&#123;user&#125;&quot;)]</span><br><span class="line">    Task&lt;User&gt; GetUser(string user);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static class GitHubApiStartupExtensions</span><br><span class="line">&#123;</span><br><span class="line">   // Extension called from Startup class in production code</span><br><span class="line">   public static void AddGitHubApi(this IServiceCollection services)</span><br><span class="line">   &#123;</span><br><span class="line">      services.AddRefitClient&lt;IApiService&gt;()</span><br><span class="line">              .ConfigureHttpClient(c =&gt; c.BaseAddress = new(&quot;https://api.github.com&quot;));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class SomeLogic</span><br><span class="line">&#123;</span><br><span class="line">   private IApiService _apiService;</span><br><span class="line">   public SomeLogic(IApiService api) &#123; _apiService = api &#125;</span><br><span class="line"></span><br><span class="line">   public async Task&lt;string&gt; Greeting(string userId)</span><br><span class="line">   &#123;</span><br><span class="line">      var name = await _apiService.GetUser(userId);</span><br><span class="line">      return $&quot;Hello, &#123;name&#125;&quot;;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* --- Tests --- */</span><br><span class="line"></span><br><span class="line">// In reality, this wouldn&#x27;t be in the test, you would call production code to setup registrations</span><br><span class="line">var services = new ServiceCollection();</span><br><span class="line">services.AddGitHubApi();</span><br><span class="line">services.AddTransient&lt;SomeLogic&gt;();</span><br><span class="line"></span><br><span class="line">// Test setup</span><br><span class="line">var builder = new TeePeeBuilder();</span><br><span class="line">builder.ForRequest(&quot;https://api.github.com/users/abc-123&quot;, HttpMethod.Get)</span><br><span class="line">       .Responds()</span><br><span class="line">       .WithBody(new &#123; Name = &quot;User&#x27;s Name&quot; &#125;)</span><br><span class="line">       .WithStatus(HttpStatusCode.OK);</span><br><span class="line"></span><br><span class="line">services.AttachToRefitInterface&lt;IApiService&gt;(builder.Build());</span><br><span class="line"></span><br><span class="line">// Simulate Production Code - you&#x27;d probably be testing some edge API not just a class like this</span><br><span class="line">var greeting = await services.BuildServiceProvider().GetRequiredService&lt;SomeLogic&gt;().Greeting(&quot;abc-123&quot;);</span><br><span class="line"></span><br><span class="line">Assert.Equal(&quot;Hello, User&#x27;s Name&quot;, user.Name);</span><br></pre></td></tr></table></figure>
+
+<p>All the documentation is in the <a target="_blank" rel="noopener" href="https://github.com/oatsoda/TeePee#readme">Readme</a> so I would start there. There are also <a target="_blank" rel="noopener" href="https://github.com/oatsoda/TeePee/tree/main/Examples">Examples</a>.</p>
+<p>Any feedback or issues welcome, either via <a target="_blank" rel="noopener" href="https://github.com/oatsoda/TeePee/issues">GitHub</a> or <a target="_blank" rel="noopener" href="https://twitter.com/oatsoda">Twitter</a>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Blog</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introducing-TeePee-A-fluent-API-library-for-mocking-HttpClient-and-HttpClientFactory-for-testing"><span class="toc-number">1.</span> <span class="toc-text">Introducing TeePee: A fluent API library for mocking HttpClient and HttpClientFactory for testing</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&text=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&is_video=false&description=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Introducing TeePee: Simplify mocking of HttpClients for testing&body=Check out this article: http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&title=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&name=Introducing TeePee: Simplify mocking of HttpClients for testing&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/08/teepee-simplify-mocking-of-HttpClient-for-testing/&t=Introducing TeePee: Simplify mocking of HttpClients for testing"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2023
+    Andrew Milne
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Blog</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
