@@ -46,9 +46,9 @@ builder.ForRequest("https://some.api/path/resource", HttpMethod.Post)
        .WithStatus(HttpStatusCode.Created)
        .WithBody(new { Id = Guid.NewGuid() });
 
-var httpClientFactory = builder.Build()
-                               .Manual("https://some.api")
-                               .CreateHttpClientFactory();
+var httpClientFactory = (await builder.Build())
+                           .Manual("https://some.api")
+                           .CreateHttpClientFactory();
 /*
 Sadly, if your production code DI registers the BaseURL then you have to duplicate that in the test, passing it to .Manual(); no coverage with manual injection like this.
 */
@@ -104,7 +104,7 @@ builder.ForRequest("https://api.github.com/users/abc-123", HttpMethod.Get)
        .WithBody(new { Name = "User's Name" })
        .WithStatus(HttpStatusCode.OK);
 
-services.AttachToRefitInterface<IApiService>(builder.Build());
+services.AttachToRefitInterface<IApiService>(await builder.Build());
 
 // Simulate Production Code - you'd probably be testing some edge API not just a class like this
 var greeting = await services.BuildServiceProvider().GetRequiredService<SomeLogic>().Greeting("abc-123");
