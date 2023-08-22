@@ -36,10 +36,14 @@ favicon:
   desktop:
     url: /images/icon.ico
     gravatar: false
-# TODO: Need a bigger icon for mobile (192x192 Android, 180x180 Apple)
+  # TODO: Need a bigger icon for mobile (192x192 Android, 180x180 Apple)
   android:
     url: /images/icon.ico
     gravatar: false
   apple:
     url: /images/icon.ico
     gravatar: false
+
+google_analytics:
+  enabled: true
+  id: "G-QS9KGLB7E6"

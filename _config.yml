@@ -106,7 +106,3 @@ theme: cactus
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ""
-
-google_analytics:
-  enabled: true
-  id: "G-QS9KGLB7E6"
