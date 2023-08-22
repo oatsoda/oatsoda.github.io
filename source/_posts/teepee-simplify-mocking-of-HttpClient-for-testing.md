@@ -11,7 +11,7 @@ tags:
 
 **_A clean way to set up your HTTP mocks_**
 
-[![TeePee Logo](https://raw.githubusercontent.com/oatsoda/TeePee/main/TeePee/teepee-icon.png)](https://github.com/oatsoda/TeePee)
+[![TeePee Logo](https://raw.githubusercontent.com/oatsoda/TeePee/main/teepee-icon.png)](https://github.com/oatsoda/TeePee)
 
 I started the [TeePee](https://github.com/oatsoda/TeePee) (The name is based on the last two characters of HT*TP*) library a couple of years ago and it has since become battle tested and proven to work quite nicely.
 
