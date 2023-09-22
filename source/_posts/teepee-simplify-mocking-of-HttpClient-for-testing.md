@@ -25,7 +25,7 @@ There's also [an extension Package for Refit](https://www.nuget.org/packages/Tee
 
 Here's an example of mocking a GET request and using a simple _manual_ injection of a Named HttpClient:
 
-```[csharp]
+```csharp
 // Subject Under Test
 public class ToTest
 {
@@ -59,7 +59,7 @@ var sut = new ToTest(httpClientFactory);
 
 And here's an example of using Refit and also covering startup registrations in the test:
 
-```[csharp]
+```csharp
 /* --- Production Code --- */
 
 public interface IApiService
