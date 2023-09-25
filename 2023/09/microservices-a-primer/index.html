@@ -14,7 +14,7 @@
 <meta property="og:description" content="Microservices are a hugely popular architecture pattern and there are many articles written about it. Some of these are unclear about why and how. This article aims to set out some calm, clear, unders">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-22T10:16:56.000Z">
-<meta property="article:modified_time" content="2023-09-25T14:17:09.016Z">
+<meta property="article:modified_time" content="2023-09-25T14:28:25.515Z">
 <meta property="article:author" content="Andrew Milne">
 <meta property="article:tag" content="Architecture">
 <meta property="article:tag" content="Microservices">
@@ -184,6 +184,7 @@
 <li>Using a microservices architecture adds complexity to your application. It can no longer simply execute all logic in one process.</li>
 </ul>
 <p>The two cancel each other out, so I do not think you should consider this as a reason for choosing a microservices architecture. Otherwise you may find that you have made your application needlessly complex for no benefit.</p>
+<p>In fact, this downside is a major reason <em>not</em> to use microservices. Unless you believe that the benefits are going to far outweigh the downsides, you probably shouldn’t use it. Smaller applications that don’t need to scale so quickly often do not require the complexity. Even if you do not need to implement microservices, there are patterns and approaches to their internal architecture that you may want to use inside your monolithic application.</p>
 <h2 id="Designing-microservices-using-DDD-Bounded-Contexts"><a href="#Designing-microservices-using-DDD-Bounded-Contexts" class="headerlink" title="Designing microservices using DDD Bounded Contexts"></a>Designing microservices using DDD Bounded Contexts</h2><p>The best way of deciding how to structure your microservices is using <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Domain-driven_design">Domain Driven Design</a> (DDD) and identifying the <a target="_blank" rel="noopener" href="https://martinfowler.com/bliki/BoundedContext.html">Bounded Contexts</a>.</p>
 <p>These will allow you to identify the “seams” between contexts in your application where there is very little logic which needs to cross over between those contexts.</p>
 <p>For example, in a basic online shop, the user’s details such as name, profile and avatar have very little cross-over with the ordering part of your application. Managing the user’s name, profile and avatar is done very separately from creating or fulfilling an order. Equally, a stock inventory is likely to be managed very separately from both user and order contexts.</p>
