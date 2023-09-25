@@ -7,6 +7,8 @@ tags:
   - Event-Driven
 ---
 
+!["Small multi-coloured sugar sprinkles"](sprinkles.jpg)
+
 **_Microservices are a hugely popular architecture pattern and there are many articles written about it. Some of these are unclear about *why* and *how*. This article aims to set out some calm, clear, understanding._**
 
 ## What are microservices?
@@ -144,3 +146,5 @@ These additional topics include:
 - Other resilience patterns such as circuit breaker for coping with temporarily offline services.
 
 For further reading, I recomment [.NET Microservices: Architecture for Containerized .NET Applications](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/) (available as a [PDF](http://aka.ms/MicroservicesEbook) too) - the chapters on containerization can be skipped if you prefer to just read about microservices as the content is separate from that of containers.
+
+<sup><sub>Credit: Photo by <a href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alexander Grey</a> on <a href="https://unsplash.com/photos/YaajxnfGeCk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></sub></sup>
