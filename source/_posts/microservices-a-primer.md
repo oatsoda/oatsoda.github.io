@@ -32,6 +32,8 @@ This is true, but the reason that I would not consider it a benefit is that ther
 
 The two cancel each other out, so I do not think you should consider this as a reason for choosing a microservices architecture. Otherwise you may find that you have made your application needlessly complex for no benefit.
 
+In fact, this downside is a major reason _not_ to use microservices. Unless you believe that the benefits are going to far outweigh the downsides, you probably shouldn't use it. Smaller applications that don't need to scale so quickly often do not require the complexity. Even if you do not need to implement microservices, there are patterns and approaches to their internal architecture that you may want to use inside your monolithic application.
+
 ## Designing microservices using DDD Bounded Contexts
 
 The best way of deciding how to structure your microservices is using [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) (DDD) and identifying the [Bounded Contexts](https://martinfowler.com/bliki/BoundedContext.html).
