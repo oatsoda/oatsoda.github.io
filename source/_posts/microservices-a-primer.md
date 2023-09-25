@@ -96,7 +96,7 @@ On top of that physical architecture, it is best to model the logical architectu
 
 This is the idea that those messages are in fact events, no matter how or who they get delivered to.
 
-For example, in the eventual consistency example earlier - where the user updates their name in the users service and the orders service needs to be updated - could be modelled as the "User name updated" event. The users orders service can publish this to a broker and the orders service can handle the event to update the orderer's name.
+For example, in the eventual consistency example earlier - where the user updates their name in the users service and the orders service needs to be updated - could be modelled as the "User name updated" event. The users service can publish this to a broker and the orders service can handle the event to update the orderer's name.
 
 The event could just contain the user's identifier, or it could contain all of the data that the user changed. The former requires the orders service to request the data from the users service, the latter approach requires more data on the message. This latter approach is called [Event-Carried State Transfer](https://martinfowler.com/articles/201701-event-driven.html#Event-carriedStateTransfer).
 
