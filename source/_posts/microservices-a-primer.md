@@ -110,7 +110,7 @@ Message-based architectures aid with that resilience - while adding complexity t
 
 Discussing this resilience is beyond this article; Some key points regarding this are:
 
-- A [Transactional Outbox](https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern#The_outbox_pattern) can be used to ensure data updates and events are kept in sync by ensuring that failures that occur after a transactional update to a database, for example, but before an event can be raised, will be recorded and retryable.
+- A [Transactional Outbox](https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern#The_outbox_pattern) can be used to ensure data updates and events are kept in sync by ensuring that failures which occur _after_ a transactional update to a database, for example, _but before_ an event can be raised, will be recorded and retryable.
 - A [Transactional Inbox](https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern#The_inbox_pattern) can be used to ensure subscribers handling events successfully handle them at least once.
 - Ensuring [Idempotence](https://en.wikipedia.org/wiki/Idempotence) - where multiple executions with the same input parameters causes no additional effect on the outcome - can be used to be resilient against at-least-once delivery and retries.
 
