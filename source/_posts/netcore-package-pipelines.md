@@ -2,19 +2,18 @@
 title: .NET package versioning and continuous deployment
 date: 2020-10-19 13:31:00
 tags:
-- Azure DevOps
-- NuGet Packages
-- Pipelines
+  - Azure DevOps
+  - NuGet Packages
+  - Pipelines
 ---
-### NetCore Package Versioning and Continuous Deployment
 
-***Understanding net core latest versioning and packaging*** 
+**_Understanding net core latest versioning and packaging_**
 
 I've recently been playing with publishing my first NuGet package into NuGet.org. I always assumed I would eventually need to become familiar with this - specifically using private package management for internal project repositories (for example using [Azure DevOps private repositories](https://docs.microsoft.com/en-us/azure/devops/artifacts/get-started-nuget?view=azure-devops)) but in the end I have gone straight for public NuGet for my first attempt. And it seems my late arrival has worked out well as things are _now_ fairly straight forward!
 
 ![NuGet Packages](cartons.png "Source: digital designer https://pixabay.com/users/dapple-designers-7874104/")
 
-### A basic introduction
+## A basic introduction
 
 On my travels I had come across .nuspec files within repositories, so I assumed that this was where I would need to start. However, it seems that since .NET Core, Package management is now a first class citizen, so you can now work directly with your project files.
 
@@ -22,7 +21,7 @@ As you can see, the [.nuspec files are designed for older projects](https://doc
 
 More on this a bit later.
 
-### A brief history of .NET versioning
+## A brief history of .NET versioning
 
 If you have used .NET for any length of time you're probably aware of how versioning assemblies can be a bit painful when it comes to adding it to a CI/CD pipeline. Not least because of the whole `FileVersion` vs `AssemblyVersion`! This does of course depend on your level of OCD - but personally I prefer to make sure they are both set the same to avoid any confusion.
 
@@ -56,15 +55,15 @@ Which makes the whole CI/CD pipeline very simple to implement and ensure your as
 
 For a full rundown of the various `.csproj` version elements, I recommend [this blog post](https://andrewlock.net/version-vs-versionsuffix-vs-packageversion-what-do-they-all-mean/), but see my note later on regarding the Version Suffix.
 
-### Checking your assemblies
+## Checking your assemblies
 
-If you want to be sure what version your assemblies have, then opening file Properties will show the File Version, but not the Assembly Version. 
+If you want to be sure what version your assemblies have, then opening file Properties will show the File Version, but not the Assembly Version.
 
 Instead, you can use the following PowerShell script to display both versions:
 
 <script src="https://gist.github.com/oatsoda/5f1e7f7e5388810a78905f45007797b9.js"></script>
 
-### Creating your package
+## Creating your package
 
 Now we know how to set the version and where to set the Package details, we can bring it all together.
 
@@ -97,26 +96,26 @@ And you can package it with the `dotnet pack` command:
 dotnet pack /p:Version=1.2.3.4
 ```
 
-### Adding it to an Azure DevOps Pipeline
+## Adding it to an Azure DevOps Pipeline
 
-Lastly, I wanted to get this implemented in a CD pipeline to make things faster and automated. 
+Lastly, I wanted to get this implemented in a CD pipeline to make things faster and automated.
 
 If you have used DevOps pipelines before, you'll be aware that there is already a [dotnet pipeline Task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) that you can use, for example, running a dotnet build:
 
 ```yml
 - task: DotNetCoreCLI@2
-  displayName: 'Build  All'
+  displayName: "Build  All"
   inputs:
-    command: 'build'
-    projects: 'MySolution.sln'
-    arguments: '-c  $(buildConfiguration)  /p:Version=$(Build.BuildNumber)'
+    command: "build"
+    projects: "MySolution.sln"
+    arguments: "-c  $(buildConfiguration)  /p:Version=$(Build.BuildNumber)"
 ```
 
 You can of course change the command to `pack` and this will issue the dotnet pack command as above.
 
 However, I had some issues around the versioning with when it came to pre-release suffixes.
 
-### Pre-release Suffixes
+## Pre-release Suffixes
 
 Just when I thought I was done, I realised that I would need to be able to additionally support the suffixes such as `-alpha` or `-beta` so that I can push out pre-release versions of my package. This is simply the case of adding `-alpha` or `-beta` which will be picked up automatically by NuGet.org to mark that version of the package as pre-release.
 
@@ -128,11 +127,11 @@ However, when it came to using the DotNetCoreCLI task I had issues with the vers
 - task: PowerShell@2
   displayName: Package NuGet
   inputs:
-    targetType: 'inline'
+    targetType: "inline"
     script: dotnet pack MyPackage.csproj /p:Version=1.2.3.4-alpha
 ```
 
-### Deploy to NuGet.org
+## Deploy to NuGet.org
 
 To complete the pipeline, I wanted it to automatically push the package to NuGet.org. My first port of call with this was to investigate the Azure DevOps pipeline NuGet tasks which have various options and configurations for pushing to different NuGet feeds. I had a lot of problems in trying to get these to work. After some digging, it turns out that these NuGet tasks are specifically for pushing to private NuGet feeds, not NuGet.org itself!
 
@@ -140,14 +139,14 @@ In which case I reverted to PowerShell again to call the dotnet nuget push comma
 
 ```yml
 - task: PowerShell@2
-  displayName: 'Deploy  to  NuGet.org'
+  displayName: "Deploy  to  NuGet.org"
   inputs:
-    targetType: 'inline'
+    targetType: "inline"
     script: 'dotnet  nuget  push  ''$(Build.ArtifactStagingDirectory)\*.nupkg''  --api-key  $(nugetApiKey)  --source  ''https://api.nuget.org/v3/index.json'''
 ```
 
 The API Key is one that you can create when logged in to NuGet.org (using a microsoft account). On NuGet.org, click your username > [API Keys](https://www.nuget.org/account/apikeys) and create a new key. I added mine as a secret variable from within the Azure DevOps portal. There's no need to define this variable anywhere, just make sure that the variable is named the same as the "nugetApiKey" that is used within the YAML.
 
-If you would like to see all of the above in use, [see my Azure DevOps pipeline YAML file](https://github.com/oatsoda/TeePee/blob/main/Full.yml).
+If you would like to see all of the above in use, [see my Azure DevOps pipeline YAML file](https://github.com/oatsoda/TeePee/blob/main/Release.TeePee.yml).
 
 I may revisit and see if I can get the DotNetCoreCLI task working again with the versioning, but given it is just a wrapper for the `dotnet pack` command, it's not the end of the world.

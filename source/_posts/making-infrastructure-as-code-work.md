@@ -10,8 +10,6 @@ tags:
 
 _Updated 1 Aug 2023: General rewording and re-write of Develop locally section._
 
-### Working with Infrastructure as Code
-
 I believe there is a very simple way of thinking about Infrastructure as Code (IaC):
 
 > _It's how you ensure your deployed platform is saved in source control_.
@@ -24,13 +22,13 @@ I will attempt to answer in this article.
 
 ![Infrastructure](colored-pencils.jpg "Source: https://pixabay.com/users/5598375-5598375/")
 
-### Automate your deployments
+## Automate your deployments
 
 Having your Infrastructure defined in deployment code is a great first step, but you should also make sure that it is then hooked up to automatically deploy from your CI/CD pipelines. This way there are no manual steps which could be subject to mistakes.
 
 Make sure that this is Continuous Deployment to your Test/Staging environments. In the same way that Automated Tests enforce the idea that all changes committed to product source _must work_, automated deployments each time changes are committed to source (both product and deployment source) will help to enforce the idea that deployment source also _must work_. **Product code and Deployment code should both be treated as first-class citizens**.
 
-### Work code-first
+## Work code-first
 
 One of the major reasons that your deployed platform could drift away from what is defined in your IaC is that changes have been made to the platform but not committed to source. This could be changes made and then forgotten, or even just changes that have been "tried" in the deployed platform and are awaiting to be updated in code.
 
@@ -40,7 +38,7 @@ This always reminds me of when I was a teenager working at my first job in a bui
 
 Where possible, make the changes in source **_first_**. It avoids accidents of forgetting changes were made and also ensures that the deployment code **_actually works_**.
 
-### Develop locally
+## Develop locally
 
 Following on from the concept of working code-first, you should also make sure you are developing locally and not against your deployed platform so that your Test/Staging environments are clean representations of your main source trunk IaC and not being constantly altered by developers working on core product features (especially by code that isn't even finished).
 
@@ -50,7 +48,7 @@ Developing locally may have some initial overhead with setup, but generally it i
 
 If specific elements of your employed environment don't have emulators or container images, then I would suggest you create instances of the element for each of your team members (again, automate this) rather than having shared instances (unless there is no data/state). If there's a cost implication with this, schedule in regular tear-downs to delete the resources when they're not being used.
 
-#### Developing your actual IaC
+### Developing your actual IaC
 
 Working on your actual IaC is slightly different as you aren't then working locally - you're working on code that needs to be tested against the destination platform before it gets committed to source. When doing this there is a sliding scale of discretion that is important to consider.
 
@@ -60,11 +58,11 @@ If you do this then you definitely want to be scheduling in tear-down (see below
 
 If you have a vast, complex platform which you regularly alter your IaC on a daily basis then instead you might want to add a specific environment for this and schedule in a nightly tear-down and morning creation.
 
-### Bug investigation
+## Bug investigation
 
 When investigating issues on the deployed platform it can be tempting to make changes in an attempt to fix problems. I'd recommend trying to keep the discipline of working **code-first** and **developing locally** to solve these issues. This can be tricky when reproduction of the problem isn't easy - so you may need to use your discretion if the issue is critical. The danger here is that you may erode some benefit of the points above, so use explanations and training to ensure things are clear with your team.
 
-### Schedule regular tear-downs of deployed platforms
+## Schedule regular tear-downs of deployed platforms
 
 Referring to the question right at the beginning: How can you be sure that your Infrastructure as Code actually reflects your deployed platform?
 
@@ -79,10 +77,10 @@ I'm talking about Test/Staging environments here: you probably want to also be r
 
 If you do schedule in regular tear-downs, don't do it too often. Like I say, predominantly your deployments need to work on existing deployed platforms, so don't go too far the other way and have it deploy to clean environments every time as this could be masking problems which would occur when deploying to a deployed environment which is populated with more user data.
 
-### Practice DevOps in your team
+## Practice DevOps in your team
 
 As a developer, I am coming at this from a coding point of view. DevOps is the idea that your Development and Operations are not separate - and Infrastructure as Code is the same. Whilst you could have separate Development and Operations and still utilise IaC, there's a good chance that your Development team are going to have more experience with the fact that source control is the *"single truth"* of your software, as opposed, potentially, to Operations who may not have used source control or the concepts of Continuous Integration and Delivery. Additionally, a true DevOps process works best because that shared responsibility across all members of the team should enforce everyone to treat Infrastructure as a first-class citizen of your product.
 
-### Summary
+## Summary
 
 Hopefully this article provides some ideas of how to approach IaC. Implementing these rules doesn't need to be draconian - hopefully you can trust your team and help them via coaching rather than locking down access.

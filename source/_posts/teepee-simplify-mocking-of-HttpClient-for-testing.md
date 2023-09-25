@@ -7,7 +7,7 @@ tags:
   - HTTP
 ---
 
-### Introducing TeePee: A fluent API library for mocking HttpClient and HttpClientFactory for testing
+## A fluent API library for mocking HttpClient and HttpClientFactory for testing
 
 **_A clean way to set up your HTTP mocks_**
 
@@ -22,6 +22,8 @@ Here is the [Nuget Package](https://www.nuget.org/packages/TeePee/).
 All of the various ways you can use it are documented in the [Readme](https://github.com/oatsoda/TeePee#readme), including both a) if you cover DI in behavioural tests or b) if you want to manually inject HttpClient/HttpClientFactory into your SUT in a unit test.
 
 There's also [an extension Package for Refit](https://www.nuget.org/packages/TeePee.Refit/). Why wouldn't I just mock the refit interface I hear you say? Well you might decide that's enough for your situation, but it won't mean that all the setup code in your startup is covered by the tests - such as Base URI and any Http Handlers which often configure authentication for third party APIs.
+
+## Manual Injection example
 
 Here's an example of mocking a GET request and using a simple _manual_ injection of a Named HttpClient:
 
@@ -56,6 +58,8 @@ Sadly, if your production code DI registers the BaseURL then you have to duplica
 var sut = new ToTest(httpClientFactory);
 // ... etc.
 ```
+
+## Dependency Injection example
 
 And here's an example of using Refit and also covering startup registrations in the test:
 
@@ -111,6 +115,8 @@ var greeting = await services.BuildServiceProvider().GetRequiredService<SomeLogi
 
 Assert.Equal("Hello, User's Name", user.Name);
 ```
+
+## Feedback
 
 All the documentation is in the [Readme](https://github.com/oatsoda/TeePee#readme) so I would start there. There are also [Examples](https://github.com/oatsoda/TeePee/tree/main/Examples).
 
