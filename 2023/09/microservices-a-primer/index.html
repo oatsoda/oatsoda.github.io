@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/09/microservices-a-primer/sprinkles.jpg">
 <meta property="article:published_time" content="2023-09-22T10:16:56.000Z">
-<meta property="article:modified_time" content="2023-09-25T15:19:19.020Z">
+<meta property="article:modified_time" content="2023-09-25T15:20:29.224Z">
 <meta property="article:author" content="Andrew Milne">
 <meta property="article:tag" content="Architecture">
 <meta property="article:tag" content="Microservices">
@@ -213,7 +213,7 @@
 <p>For example, in the eventual consistency example earlier - where the user updates their name in the users service and the orders service needs to be updated - could be modelled as the “User name updated” event. The users service can publish this to a broker and the orders service can handle the event to update the orderer’s name.</p>
 <p>The event could just contain the user’s identifier, or it could contain all of the data that the user changed. The former requires the orders service to request the data from the users service, the latter approach requires more data on the message. This latter approach is called <a target="_blank" rel="noopener" href="https://martinfowler.com/articles/201701-event-driven.html#Event-carriedStateTransfer">Event-Carried State Transfer</a>.</p>
 <h3 id="Resilience"><a href="#Resilience" class="headerlink" title="Resilience"></a>Resilience</h3><p>As mentioned in the initial section of this article, using a microservices architecture means that you don’t have the benefits of resilient transactional based updates to data.</p>
-<p>But even with simple monolithic applications, synchronising internal data with external third-parties is not resilient.</p>
+<p>But even with simple monolithic applications that can use transactional updates to data, synchronising internal data with external third-parties is not resilient.</p>
 <p>Message-based architectures aid with that resilience - while adding complexity too - because their async nature means that messages can be tracked and retried.</p>
 <p>Discussing this resilience is beyond this article; Some key points regarding this are:</p>
 <ul>
