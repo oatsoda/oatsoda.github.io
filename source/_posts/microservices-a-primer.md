@@ -104,7 +104,7 @@ The event could just contain the user's identifier, or it could contain all of t
 
 As mentioned in the initial section of this article, using a microservices architecture means that you don't have the benefits of resilient transactional based updates to data.
 
-But even with simple monolithic applications, synchronising internal data with external third-parties is not resilient.
+But even with simple monolithic applications that can use transactional updates to data, synchronising internal data with external third-parties is not resilient.
 
 Message-based architectures aid with that resilience - while adding complexity too - because their async nature means that messages can be tracked and retried.
 
