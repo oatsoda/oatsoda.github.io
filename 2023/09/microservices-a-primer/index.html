@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/09/microservices-a-primer/sprinkles.jpg">
 <meta property="article:published_time" content="2023-09-22T10:16:56.000Z">
-<meta property="article:modified_time" content="2023-09-25T15:20:29.224Z">
+<meta property="article:modified_time" content="2023-09-25T15:21:45.824Z">
 <meta property="article:author" content="Andrew Milne">
 <meta property="article:tag" content="Architecture">
 <meta property="article:tag" content="Microservices">
@@ -217,7 +217,7 @@
 <p>Message-based architectures aid with that resilience - while adding complexity too - because their async nature means that messages can be tracked and retried.</p>
 <p>Discussing this resilience is beyond this article; Some key points regarding this are:</p>
 <ul>
-<li>A <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern#The_outbox_pattern">Transactional Outbox</a> can be used to ensure data updates and events are kept in sync by ensuring that failures that occur after a transactional update to a database, for example, but before an event can be raised, will be recorded and retryable.</li>
+<li>A <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern#The_outbox_pattern">Transactional Outbox</a> can be used to ensure data updates and events are kept in sync by ensuring that failures which occur <em>after</em> a transactional update to a database, for example, <em>but before</em> an event can be raised, will be recorded and retryable.</li>
 <li>A <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern#The_inbox_pattern">Transactional Inbox</a> can be used to ensure subscribers handling events successfully handle them at least once.</li>
 <li>Ensuring <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Idempotence">Idempotence</a> - where multiple executions with the same input parameters causes no additional effect on the outcome - can be used to be resilient against at-least-once delivery and retries.</li>
 </ul>
