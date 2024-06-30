@@ -25,8 +25,8 @@ This is where I had the idea that this could be described as a “pinch”: befo
 
 I hope that it is pretty easy to understand; this was largely the point of creating the diagram! The “pinch” in the middle demonstrates the ethos with which you approach work and avoid wastage. Subsequently, the diagram then naturally has two time periods which demonstrate that to gain more agility you want two things:
 
-To be able to start something quickly after the point of feedback/idea/market opportunity.
-To be able to implement something (or throw it away) quickly after starting it.
+1. To be able to start something quickly after the point of feedback/idea/market opportunity.
+2. To be able to implement something (or throw it away) quickly after starting it.
 
 Because both of these mean you have the agility to be able to react quickly to feedback, product ideas and market opportunities.
 
@@ -65,6 +65,7 @@ DON’T ❌
 
 - Expect to know any details of how to implement before starting.
 - Batch up changes to be released.
+- Assume the whole depth of solution needs completing immediately.
 
 ## Summary
 
