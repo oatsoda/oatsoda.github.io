@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Is there a simpler way to explain how software development teams could, and should, be practising greater agility in their day to day work? It can be hard to explain to development teams how they coul">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Pinch of Software Agility">
+<meta property="og:url" content="http://example.com/2024/06/the-pinch-of-software-agility/">
+<meta property="og:site_name" content="DotDevBlog | Andrew Milne">
+<meta property="og:description" content="Is there a simpler way to explain how software development teams could, and should, be practising greater agility in their day to day work? It can be hard to explain to development teams how they coul">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2024/06/the-pinch-of-software-agility/the-pinch-of-software-agility.png">
+<meta property="article:published_time" content="2024-06-30T14:23:03.000Z">
+<meta property="article:modified_time" content="2024-06-30T14:12:24.368Z">
+<meta property="article:author" content="Andrew Milne">
+<meta property="article:tag" content="Agile">
+<meta property="article:tag" content="Process">
+<meta property="article:tag" content="Productivity">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/06/the-pinch-of-software-agility/the-pinch-of-software-agility.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/icon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/icon.ico" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.ico">
+        
+      
+    
+    <!-- title -->
+    <title>The Pinch of Software Agility</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QS9KGLB7E6"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QS9KGLB7E6');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Blog</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/09/microservices-a-primer/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2024/06/the-pinch-of-software-agility/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2024/06/the-pinch-of-software-agility/&text=The Pinch of Software Agility"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2024/06/the-pinch-of-software-agility/&is_video=false&description=The Pinch of Software Agility"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=The Pinch of Software Agility&body=Check out this article: http://example.com/2024/06/the-pinch-of-software-agility/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2024/06/the-pinch-of-software-agility/&name=The Pinch of Software Agility&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2024/06/the-pinch-of-software-agility/&t=The Pinch of Software Agility"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Left-Shifting"><span class="toc-number">1.</span> <span class="toc-text">Left Shifting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diagram"><span class="toc-number">2.</span> <span class="toc-text">Diagram</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-to-Start"><span class="toc-number">3.</span> <span class="toc-text">Time to Start</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-to-Implement"><span class="toc-number">4.</span> <span class="toc-text">Time to Implement</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">5.</span> <span class="toc-text">Summary</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        The Pinch of Software Agility
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Andrew Milne</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-06-30T14:23:03.000Z" class="dt-published" itemprop="datePublished">2024-06-30</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Agile/" rel="tag">Agile</a>, <a class="p-category" href="/tags/Process/" rel="tag">Process</a>, <a class="p-category" href="/tags/Productivity/" rel="tag">Productivity</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><strong>Is there a simpler way to explain how software development teams could, and should, be practising greater agility in their day to day work?</strong></p>
+<p>It can be hard to explain to development teams how they could be more productive. There are great articles such as Dave Thomas’s <a target="_blank" rel="noopener" href="https://pragdave.me/thoughts/active/2014-03-04-time-to-kill-agile.html">Agile is Dead (Long Live Agility)</a>, and <a target="_blank" rel="noopener" href="https://martinfowler.com/articles/agileFluency.html">The Agile Fluency Model</a> but they aren’t always easily absorbed and applied when a development team is already set in a way of working. A more succinct visualisation might help to explain what a better working process might look like.</p>
+<h2 id="Left-Shifting"><a href="#Left-Shifting" class="headerlink" title="Left Shifting"></a>Left Shifting</h2><p>I like using the term “left shift” as a really simple way to convey to a developer how they should try to avoid unnecessary waste when implementing a new change to their product. The idea being that whilst you are starting implementation, as early as possible you should be engaging with users&#x2F;stakeholders, considering quality and avoiding creating any downstream dependencies (e.g. siloed implementers passing partially complete work onwards to be completed) because the earlier you can detect problems the less it costs your team to alter course. It only dawned on me the other day that, of course, left shifting only makes sense up to the point of <em>starting the implementation</em>. That’s because if you left-shifted beyond that point, into the period <em>before</em> starting, you are pushing towards a waterfall process: that is, you’re then asking for decisions to be made much earlier, which is not what you want when trying to be agile!</p>
+<p>For the period <em>before</em> starting you in fact want to do the opposite to left shifting. For agility you want to be deferring making decisions. This is so that you avoid the cost of making wrong decisions, which is easy to do at this stage because you are largely guessing.</p>
+<h2 id="Diagram"><a href="#Diagram" class="headerlink" title="Diagram"></a>Diagram</h2><p>This is where I had the idea that this could be described as a “pinch”: before implementation you want to right shift to delay decision making; when starting implementing you want to left shift to ensure failures happen as quickly as possible. Here is my proposed diagram and terminology and my explanations. My hope is that it could aid educating development and product teams and also wider organisation members into the benefits of being leaner and more agile.</p>
+<p><img src="/2024/06/the-pinch-of-software-agility/the-pinch-of-software-agility.png" alt="&quot;Diagram: The Pinch of software agility&quot;"></p>
+<p>I hope that it is pretty easy to understand; this was largely the point of creating the diagram! The “pinch” in the middle demonstrates the ethos with which you approach work and avoid wastage. Subsequently, the diagram then naturally has two time periods which demonstrate that to gain more agility you want two things:</p>
+<p>To be able to start something quickly after the point of feedback&#x2F;idea&#x2F;market opportunity.<br>To be able to implement something (or throw it away) quickly after starting it.</p>
+<p>Because both of these mean you have the agility to be able to react quickly to feedback, product ideas and market opportunities.</p>
+<h2 id="Time-to-Start"><a href="#Time-to-Start" class="headerlink" title="Time to Start"></a>Time to Start</h2><p>Firstly, it’s worth pointing out that this time period isn’t just a waiting period. This period is where your team does its product work: filtering feedback, understanding potential value and opportunities. The highest value opportunities become the next item to work on and some items are thrown away. But these items should be framed as user problems that need solving, not features or pieces of work. The team should gain consent, not consensus (a phrase coined by <a target="_blank" rel="noopener" href="https://holub.com/">Allen Holub</a>) that they agree it is something worth doing.</p>
+<p>DO ✅</p>
+<ul>
+<li>Have all of your team engaged and aware of feedback and upcoming potential work.</li>
+<li>Break problems down into smaller ones where possible.</li>
+<li>Throw away as much as possible that isn’t of value to your users.</li>
+<li>Collect and record as much feedback a possible.</li>
+</ul>
+<p>DON’T ❌</p>
+<ul>
+<li>Make any decisions about how to implement.</li>
+<li>Create long backlogs of items.</li>
+<li>Require consensus of the whole team for something to be considered for starting.</li>
+<li>Assume that an item will create a lot of work.</li>
+</ul>
+<h2 id="Time-to-Implement"><a href="#Time-to-Implement" class="headerlink" title="Time to Implement"></a>Time to Implement</h2><p>In a lean agile environment, work started does not necessarily mean a commitment to finish it. Also, the work could be an experiment for testing a hypothesis (see Hypothesis Driven Development). Understanding this frees up the Time to Start period from having too much pre-definition. When thinking about this time period, it also helps not to think about it as “completing a user story”; it is better to think about it as: time to get something done which will start to give more feedback. This is where more agility can be gained because you’re then able to adjust and react to that. Your team might decide to abandon or adjust the approach based upon the feedback gained and you haven’t wasted time completing the user story..</p>
+<p>Note: This Time to Implement can roughly be aligned with the DORA metric of Lead time for changes, which is the average time it takes a commit to get in to production (and note, if you’re not doing Trunk Based Development, the commit is the original commit, not a merge or PR commit into the main trunk), though in the diagram the point of release really means a change is in the users hands which could take one or more sequential changes to have been deployed into production before releasing.</p>
+<p>DO ✅</p>
+<ul>
+<li>Talk to users&#x2F;stakeholders before and during development.</li>
+<li>Engage QA &#x2F; quality before and during development (depending on how your team integrates quality).</li>
+<li>Think about how to measure the success of your changes (not all feedback must be verbal), i.e. DevOps.</li>
+<li>Try to release the smallest thing to start getting feedback.</li>
+</ul>
+<p>DON’T ❌</p>
+<ul>
+<li>Expect to know any details of how to implement before starting.</li>
+<li>Batch up changes to be released.</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>I hope that this diagram and article will be useful for explaining both why having more agility is beneficial and also how, at a higher level, this can be achieved. What this article does not discuss is the more technical details of the implementation and how this can be optimised, using techniques such as Trunk Based Development, Software Teaming (Mob Programming), TDD, DevOps, Continuous Delivery and Trunk Based Development (or CI).</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Blog</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Left-Shifting"><span class="toc-number">1.</span> <span class="toc-text">Left Shifting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diagram"><span class="toc-number">2.</span> <span class="toc-text">Diagram</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-to-Start"><span class="toc-number">3.</span> <span class="toc-text">Time to Start</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-to-Implement"><span class="toc-number">4.</span> <span class="toc-text">Time to Implement</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">5.</span> <span class="toc-text">Summary</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2024/06/the-pinch-of-software-agility/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2024/06/the-pinch-of-software-agility/&text=The Pinch of Software Agility"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2024/06/the-pinch-of-software-agility/&is_video=false&description=The Pinch of Software Agility"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=The Pinch of Software Agility&body=Check out this article: http://example.com/2024/06/the-pinch-of-software-agility/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2024/06/the-pinch-of-software-agility/&title=The Pinch of Software Agility"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2024/06/the-pinch-of-software-agility/&name=The Pinch of Software Agility&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2024/06/the-pinch-of-software-agility/&t=The Pinch of Software Agility"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2024
+    Andrew Milne
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Blog</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
