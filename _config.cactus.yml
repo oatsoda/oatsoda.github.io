@@ -10,8 +10,8 @@ social_links:
   - icon: github
     link: https://github.com/oatsoda
   - icon: twitter
-    label: "@oatsoda"
-    link: https://twitter.com/oatsoda
+    label: "@oatsoda.bsky.social"
+    link: https://bsky.app/profile/oatsoda.bsky.social
   - icon: linkedin
     link: https://www.linkedin.com/in/ajmilne/
 
