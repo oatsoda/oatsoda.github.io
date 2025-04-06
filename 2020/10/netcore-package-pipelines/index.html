@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2020/10/netcore-package-pipelines/cartons.png">
 <meta property="article:published_time" content="2020-10-19T13:31:00.000Z">
-<meta property="article:modified_time" content="2025-04-06T15:44:25.059Z">
+<meta property="article:modified_time" content="2025-04-06T15:58:36.567Z">
 <meta property="article:author" content="Andrew Milne">
 <meta property="article:tag" content="Azure DevOps">
 <meta property="article:tag" content="Pipelines">
@@ -68,7 +68,7 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -172,7 +172,7 @@
   <div class="content e-content" itemprop="articleBody">
     <p><strong><em>Understanding net core latest versioning and packaging</em></strong></p>
 <p>I’ve recently been playing with publishing my first NuGet package into NuGet.org. I always assumed I would eventually need to become familiar with this - specifically using private package management for internal project repositories (for example using <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/devops/artifacts/get-started-nuget?view=azure-devops">Azure DevOps private repositories</a>) but in the end I have gone straight for public NuGet for my first attempt. And it seems my late arrival has worked out well as things are <em>now</em> fairly straight forward!</p>
-<p><img src="/2020/10/netcore-package-pipelines/cartons.png" alt="NuGet Packages" title="Source: digital designer https://pixabay.com/users/dapple-designers-7874104/"></p>
+<p><img src="/2020/10/netcore-package-pipelines/cartons.png" alt="NuGet Packages" title="Source: digital designer https:&#x2F;&#x2F;pixabay.com&#x2F;users&#x2F;dapple-designers-7874104&#x2F;"></p>
 <h2 id="A-basic-introduction"><a href="#A-basic-introduction" class="headerlink" title="A basic introduction"></a>A basic introduction</h2><p>On my travels I had come across .nuspec files within repositories, so I assumed that this was where I would need to start. However, it seems that since .NET Core, Package management is now a first class citizen, so you can now work directly with your project files.</p>
 <p>As you can see, the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/nuget/reference/nuspec#project-type-compatibility">.nuspec files are designed for older projects</a> which use packages.config files. Now, though, you can just use the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#pack-target">MSBuild reference for packaging</a>.</p>
 <p>More on this a bit later.</p>
