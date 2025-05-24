@@ -9,6 +9,8 @@ tags:
 
 **Is there a simpler way to explain how software development teams could, and should, be practising greater agility in their day to day work?**
 
+_Updated 25 May 20232025: New graphic included._
+
 It can be hard to explain to development teams how they could be more productive. There are great articles such as Dave Thomas’s [Agile is Dead (Long Live Agility)](https://pragdave.me/thoughts/active/2014-03-04-time-to-kill-agile.html), and [The Agile Fluency Model](https://martinfowler.com/articles/agileFluency.html) but they aren’t always easily absorbed and applied when a development team is already set in a way of working. A more succinct visualisation might help to explain what a better working process might look like.
 
 ## Left Shifting
@@ -21,6 +23,10 @@ For the period _before_ starting you in fact want to do the opposite to left shi
 
 This is where I had the idea that this could be described as a “pinch”: before implementation you want to right shift to delay decision making; when starting implementing you want to left shift to ensure failures happen as quickly as possible. Here is my proposed diagram and terminology and my explanations. My hope is that it could aid educating development and product teams and also wider organisation members into the benefits of being leaner and more agile.
 
+_New Graphic:_
+!["Updated Graphic: The Pinch of software agility"](pinch-of-software-agility-graphic.png)
+
+_Original Diagram:_
 !["Diagram: The Pinch of software agility"](the-pinch-of-software-agility.png)
 
 I hope that it is pretty easy to understand; this was largely the point of creating the diagram! The “pinch” in the middle demonstrates the ethos with which you approach work and avoid wastage. Subsequently, the diagram then naturally has two time periods which demonstrate that to gain more agility you want two things:
